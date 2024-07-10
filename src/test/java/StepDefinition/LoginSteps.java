@@ -11,10 +11,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.loginPage;
 
 public class LoginSteps {
 
     WebDriver driver = null;
+    loginPage input;
 
     @Given("user is on login page")
     public void user_is_on_login_page() {
@@ -35,7 +37,7 @@ public class LoginSteps {
 
             assertEquals(pageHeader, "Test login");
 
-        } finally {
+        } catch (Exception e) {
             driver.close();
             driver.quit();
         }
@@ -44,19 +46,23 @@ public class LoginSteps {
     @When("user enters username and password")
     public void user_enters_username_and_password() {
 
+        input = new loginPage(driver);
+
         System.out.println("Inside Step - user enters username and password.");
 
-        driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("student");
-        driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("Password123");
+        input.enterUsername("student");
+        input.enterPassword("Password123");
     }
 
     @When("^user enters (.*) and (.*) parameter")
     public void enterUserPassParam(String username, String password) {
 
+        input = new loginPage(driver);
+
         System.out.println("Inside Step - user enters username and password.");
 
-        driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys(username);
-        driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(password);
+        input.enterUsername(username);
+        input.enterPassword(password);
     }
 
     @And("^user clicks on login button$")
@@ -72,13 +78,15 @@ public class LoginSteps {
     @Then("user is navigated to the home page")
     public void user_is_navigated_to_the_home_page() {
 
+        input = new loginPage(driver);
+
         try {
+
             System.out.println("Inside Step - user is navigated to homepage.");
 
-            String loggedInPage = driver.findElement(By.xpath("//*[@id=\"loop-container\"]/div/article/div[1]/h1"))
-                    .getText();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 
-            assertEquals(loggedInPage, "Logged In Successfully");
+            assertEquals(input.getSuccessLoginPageMessage(), "Logged In Successfully");
 
         } finally {
             driver.close();
@@ -91,6 +99,8 @@ public class LoginSteps {
 
         try {
             System.out.println("Inside Step - user sees user error.");
+
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 
             String error = driver.findElement(By.xpath("//*[@id=\"error\"]"))
                     .getText();
@@ -109,6 +119,8 @@ public class LoginSteps {
 
         try {
             System.out.println("Inside Step - user sees pass error.");
+
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 
             String error = driver.findElement(By.xpath("//*[@id=\"error\"]"))
                     .getText();
