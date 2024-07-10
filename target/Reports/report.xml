@@ -1,3 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.024" tests="0" skipped="0" failures="0" errors="0">
+<testsuite name="Cucumber" time="22.523" tests="5" skipped="0" failures="0" errors="0">
+<testcase classname="feature to test google search functionality" name="Validate google search is working" time="2.971">
+<system-out><![CDATA[
+Given browser is open.......................................................passed
+And user is on google search page...........................................passed
+When user enters a text in search page......................................passed
+And hits enter..............................................................passed
+Then user is navigated to search results....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="feature to test login functionality" name="Check login is successful with valid credentials" time="11.822">
+<system-out><![CDATA[
+Given user is on login page.................................................passed
+When user enters username and password......................................passed
+And user clicks on login button.............................................passed
+Then user is navigated to the home page.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="feature to test login functionality (Using Parameters)" name="Check login is successful with valid credentials (Param) - #1.1" time="3.435">
+<system-out><![CDATA[
+Given user is on login page.................................................passed
+When user enters student and Password123 parameter..........................passed
+And user clicks on login button.............................................passed
+Then user is navigated to the home page.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="feature to test login functionality (Using Parameters)" name="Check login is successful with invalid username - #1.1" time="1.362">
+<system-out><![CDATA[
+Given user is on login page.................................................passed
+When user enters InvalidStudent and Password123 parameter...................passed
+And user clicks on login button.............................................passed
+Then user sees user error popup.............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="feature to test login functionality (Using Parameters)" name="Check login is successful with invalid password - #1.1" time="2.85">
+<system-out><![CDATA[
+Given user is on login page.................................................passed
+When user enters student and InvalidPassword parameter......................passed
+And user clicks on login button.............................................passed
+Then user sees pass error popup.............................................passed
+]]></system-out>
+</testcase>
 </testsuite>
