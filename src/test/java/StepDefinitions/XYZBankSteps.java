@@ -25,6 +25,8 @@ public class XYZBankSteps {
         banking_pages = new XYZBank_PF(driver);
     }
 
+    // -------------------- Global Gherkin Actions -------------------- //
+
     @Given("user is on banking login")
     public void userIsOnLoginPage() {
         System.out.println("Given Step: User is on Login Page");
@@ -37,6 +39,8 @@ public class XYZBankSteps {
         banking_pages.validateHomePage();
 
     }
+
+    // -------------------- TC01 Gherkin Actions -------------------- //
 
     @When("user clicks on customer login")
     public void userClicksOnCustomerLogin() {
@@ -65,4 +69,7 @@ public class XYZBankSteps {
 
         banking_pages.validateUserLogin();
     }
+
+    // -------------------- TC02 Gherkin Actions -------------------- //
+
 }

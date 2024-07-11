@@ -18,6 +18,3 @@ Feature: Testing flow of demo banking website
         |Ron Weasly|
         |Albus Dumbledore|
         |Neville Longbottom|
-
-
-

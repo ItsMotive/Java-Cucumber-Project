@@ -29,6 +29,10 @@ public class XYZBank_PF {
         PageFactory.initElements(this.driver, this);
     }
 
+    // -------------------- Global Elements -------------------- //
+
+    // -------------------- TC01 Elements -------------------- //
+
     // Element for logout button
     @FindBy(css = "button.logout")
     WebElement logout_button;
@@ -61,9 +65,13 @@ public class XYZBank_PF {
     @FindBy(css = "span.fontBig")
     WebElement user_login_title;
 
+    // -------------------- Unused Functions -------------------- //
+
     public void clickLogoutButton() {
         logout_button.click();
     }
+
+    // -------------------- TC01 Functions -------------------- //
 
     public void clickCustomerLoginButton() {
 
@@ -110,5 +118,7 @@ public class XYZBank_PF {
         selector.selectByVisibleText(selection);
 
     }
+
+    // -------------------- TC02 Functions -------------------- //
 
 }
