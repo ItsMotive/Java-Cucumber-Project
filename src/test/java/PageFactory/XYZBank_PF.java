@@ -31,19 +31,11 @@ public class XYZBank_PF {
 
     // -------------------- Global Elements -------------------- //
 
-    // -------------------- TC01 Elements -------------------- //
+    // Element for home button
+    @FindBy(css = "button[ng-click = 'home()']")
+    WebElement home_button;
 
-    // Element for logout button
-    @FindBy(css = "button.logout")
-    WebElement logout_button;
-
-    // Element for user drop down
-    @FindBy(css = "select#userSelect")
-    WebElement user_drop_down;
-
-    // Element for user login button
-    @FindBy(css = "button.btn-default")
-    WebElement user_login_button;
+    // -------------------- Homepage Elements -------------------- //
 
     // Element for customer login button
     @FindBy(css = "button[ng-click = 'customer()']")
@@ -53,17 +45,31 @@ public class XYZBank_PF {
     @FindBy(css = "button[ng-click = 'manager()']")
     WebElement manager_login_button;
 
-    // Element for home button
-    @FindBy(css = "button[ng-click = 'home()']")
-    WebElement home_button;
-
     // Element for home page title
     @FindBy(css = "strong.mainHeading")
     WebElement home_page_title;
 
+    // -------------------- Customer Selection Page Elements -------------------- //
+
+    // Element for user drop down
+    @FindBy(css = "select#userSelect")
+    WebElement user_drop_down;
+
+    // Element for user login button
+    @FindBy(css = "button.btn-default")
+    WebElement user_login_button;
+
+    // -------------------- Customer Page Elements -------------------- //
+
+    // Element for logout button
+    @FindBy(css = "button.logout")
+    WebElement logout_button;
+
     // Element for successful user login
     @FindBy(css = "span.fontBig")
     WebElement user_login_title;
+
+    // -------------------- Bank Manager Page Elements -------------------- //
 
     // -------------------- Unused Functions -------------------- //
 
