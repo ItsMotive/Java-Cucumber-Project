@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="2.868" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Used for testing hotel website" name="TC01: Validating getting in touch with hotel - #1.1" time="2.797">
+<system-out><![CDATA[
+Given user is on website....................................................passed
+When user enters name John Doe..............................................passed
+And user enters email johndoe@mail.com......................................passed
+And user enters phone 31232132111...........................................passed
+And user enters subject Getting Access......................................passed
+And user enters message Something that is 20 characters long................passed
+And user clicks on submit...................................................passed
+Then user is prompted with thanks message...................................passed
+]]></system-out>
+</testcase>
+</testsuite>
