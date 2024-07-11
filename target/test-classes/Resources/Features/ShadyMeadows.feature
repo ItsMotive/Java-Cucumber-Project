@@ -12,7 +12,7 @@ Feature: Used for testing hotel website
         And user enters contact phone <phone>
         And user enters contact subject <subject>
         And user enters contact message <message>
-        And user clicks on submit
+        And user clicks on contact submit
         Then user is prompted with thanks message
 
         Examples:

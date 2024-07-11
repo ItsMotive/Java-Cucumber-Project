@@ -49,7 +49,7 @@ public class ShadyMeadows_PF {
     WebElement contact_submit_button;
 
     // Contact Success Message
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[5]/div[2]/div/h2")
+    @FindBy(xpath = "/html/body/div/div[2]/div/div[8]/div[2]/div/h2")
     WebElement contactSuccess;
 
     // -------------------- TC02 Elements --------------------//
@@ -147,7 +147,8 @@ public class ShadyMeadows_PF {
     public void validateContactConfirmation() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div/div[5]/div[2]/div/h2")));
+                ExpectedConditions
+                        .visibilityOfElementLocated(By.xpath("/html/body/div/div[2]/div/div[8]/div[2]/div/h2")));
 
         assertTrue(contactSuccess.getText().contains("Thanks for getting in touch "));
     }
