@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/Resources/Features", glue = "StepDefinitions", monochrome = true, plugin = {
-                "pretty", "html:target/Reports/HTML_Report.html",
-                "junit:target/Reports/JUnit_Report.xml" }, tags = "@HotelTest")
+        "pretty", "html:target/Reports/HTML_Report.html",
+        "junit:target/Reports/JUnit_Report.xml" }, tags = "@Banking")
 public class RunCucumberTest {
 }

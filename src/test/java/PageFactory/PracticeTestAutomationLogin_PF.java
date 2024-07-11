@@ -37,6 +37,10 @@ public class PracticeTestAutomationLogin_PF {
     // Constructor
     public PracticeTestAutomationLogin_PF(WebDriver driver) {
         this.driver = driver;
+        initElements();
+    }
+
+    private void initElements() {
         PageFactory.initElements(this.driver, this);
     }
 

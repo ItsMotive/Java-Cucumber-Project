@@ -13,17 +13,21 @@ import io.cucumber.java.en.When;
 
 public class ShadyMeadowsSteps {
 
-    private WebDriver driver;
+    WebDriver driver;
 
+    // Constructor to initialize driver
     public ShadyMeadowsSteps() {
         this.driver = DriverManager.getDriver();
+        homepage = new ShadyMeadows_PF(driver);
     }
 
     ShadyMeadows_PF homepage;
 
+    // -------------------- Universal Gherkin Action -------------------- //
+
+    // Opens and verifies website
     @Given("user is on website")
     public void verifyWebsite() {
-        homepage = new ShadyMeadows_PF(driver);
         driver.get("https://automationintesting.online/");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
@@ -32,53 +36,111 @@ public class ShadyMeadowsSteps {
         homepage.validatePage();
     }
 
-    @When("^user enters name (.*)")
-    public void enterName(String name) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
-        homepage = new ShadyMeadows_PF(driver);
+    // -------------------- TC01 Gherkin Actions -------------------- //
 
-        homepage.enterName(name);
+    // TC01: Sends keys to name input
+    @When("^user enters contact name (.*)")
+    public void enterContactName(String name) {
+
+        homepage.sendContactName(name);
     }
 
-    @And("^user enters email (.*)")
-    public void enterEmail(String email) {
-        homepage = new ShadyMeadows_PF(driver);
+    // TC01: Sends keys to contact email input
+    @And("^user enters contact email (.*)")
+    public void enterContactEmail(String email) {
 
-        homepage.enterEmail(email);
+        homepage.sendContactEmail(email);
     }
 
-    @And("^user enters phone (.*)")
-    public void enterPhone(String phone) {
-        homepage = new ShadyMeadows_PF(driver);
+    // TC01: Sends keys to contact phone input
+    @And("^user enters contact phone (.*)")
+    public void enterContactPhone(String phone) {
 
-        homepage.enterPhone(phone);
+        homepage.sendContactPhone(phone);
     }
 
-    @And("^user enters subject (.*)")
-    public void enterSubject(String subject) {
-        homepage = new ShadyMeadows_PF(driver);
+    // TC01: Sends keys to contact subject input
+    @And("^user enters contact subject (.*)")
+    public void enterContactSubject(String subject) {
 
-        homepage.enterSubject(subject);
+        homepage.sendContactSubject(subject);
     }
 
-    @And("^user enters message (.*)")
-    public void enterDesc(String description) {
-        homepage = new ShadyMeadows_PF(driver);
+    // TC01: Sends keys to contact message input
+    @And("^user enters contact message (.*)")
+    public void enterContactDesc(String description) {
 
-        homepage.enterDesc(description);
+        homepage.sendContactDesc(description);
     }
 
-    @And("user clicks on submit")
-    public void clickSubmit() {
-        homepage = new ShadyMeadows_PF(driver);
+    // TC01: Sends keys to contact email input
+    @And("user clicks on contact submit")
+    public void clickContactSubmit() {
 
-        homepage.clickSubmit();
+        homepage.clickContactSubmit();
     }
 
+    // TC01: Successful contact interaction message
     @Then("user is prompted with thanks message")
     public void validateThanksMessage() {
+
+        homepage.validateContactConfirmation();
+    }
+
+    // -------------------- TC02 Gherkin Actions -------------------- //
+
+    @When("^user clicks on booking button")
+    public void clickOpenBookingButton() {
         homepage = new ShadyMeadows_PF(driver);
 
-        homepage.validateThanksMessage();
+        homepage.clickOpenBookingButton();
     }
+
+    @And("^user enters booking first name (.*)")
+    public void enterBookingFirstNameInput(String firstname) {
+        homepage = new ShadyMeadows_PF(driver);
+
+        homepage.sendBookingFirstnameInput(firstname);
+    }
+
+    @And("^user enters booking last name (.*)")
+    public void enterBookingLastNameInput(String lastname) {
+        homepage = new ShadyMeadows_PF(driver);
+
+        homepage.sendBookingLastnameInput(lastname);
+    }
+
+    @And("^user enters booking email (.*)")
+    public void enterBookingEmailInput(String email) {
+        homepage = new ShadyMeadows_PF(driver);
+
+        homepage.sendBookingEmailInput(email);
+    }
+
+    @And("^user enters booking phone (.*)")
+    public void enterBookingPhoneInput(String phone) {
+        homepage = new ShadyMeadows_PF(driver);
+
+        homepage.sendBookingPhoneInput(phone);
+    }
+
+    @And("^user clicks and drags the days requesting")
+    public void selectBookingDays() {
+        homepage = new ShadyMeadows_PF(driver);
+
+        homepage.selectDays();
+    }
+
+    @And("^user clicks on book button")
+    public void clickBookingButton() {
+        homepage = new ShadyMeadows_PF(driver);
+
+        homepage.clickBookRoomButton();
+    }
+
+    @Then("^user sees popup of confirmation")
+    public void validateBookingConfirmation() {
+        homepage = new ShadyMeadows_PF(driver);
+    }
+
 }
