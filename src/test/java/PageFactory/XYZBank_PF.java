@@ -3,6 +3,8 @@ package PageFactory;
 import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -71,6 +73,60 @@ public class XYZBank_PF {
 
     // -------------------- Bank Manager Page Elements -------------------- //
 
+    // --------- Add Customer --------- //
+
+    // Element to add customer
+    @FindBy(css = "button[ng-click='addCust()']")
+    WebElement add_customer_button;
+
+    // Element for Add First Name
+    @FindBy(css = "input[ng-model='fName']")
+    WebElement add_first_name;
+
+    // Element for Add First Name
+    @FindBy(css = "input[ng-model='lName']")
+    WebElement add_last_name;
+
+    // Element for Add First Name
+    @FindBy(css = "input[ng-model='postCd']")
+    WebElement add_postal;
+
+    // Element for processing add customer
+    @FindBy(css = "button[type='submit']")
+    WebElement add_submit;
+
+    // --------- Open Account --------- //
+
+    // Element to open account
+    @FindBy(css = "button[ng-click='openAccount()']")
+    WebElement open_account_button;
+
+    // Element to select customer option
+    @FindBy(css = "select#userSelect")
+    WebElement select_user_account;
+
+    // Element to select currency option
+    @FindBy(css = "select#currency")
+    WebElement select_currency;
+
+    // Element to click process
+    @FindBy(css = "button[type='submit']")
+    WebElement process_button;
+
+    // --------- Show Customer --------- //
+
+    // Element to show customer
+    @FindBy(css = "button[ng-click='showCust()']")
+    WebElement show_customer_button;
+
+    // Element to search customers
+    @FindBy(css = "input[ng-model='searchCustomer']")
+    WebElement customer_search_bar;
+
+    // Element to delete customer
+    @FindBy(css = "button[ng-click='deleteCust(cust)']")
+    WebElement delete_customer;
+
     // -------------------- Unused Functions -------------------- //
 
     public void clickLogoutButton() {
@@ -126,5 +182,57 @@ public class XYZBank_PF {
     }
 
     // -------------------- TC02 Functions -------------------- //
+
+    public void clickManagerLogin() {
+
+        manager_login_button.click();
+    }
+
+    public void clickAddCustomer() {
+
+        add_customer_button.click();
+    }
+
+    public void addEnterFirstName(String first) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[ng-model='fName']")));
+
+        add_first_name.sendKeys(first);
+    }
+
+    public void addEnterLastName(String last) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[ng-model='lName']")));
+
+        add_last_name.sendKeys(last);
+    }
+
+    public void addEnterPostal(String postal) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[ng-model='postCd']")));
+
+        add_postal.sendKeys(postal);
+    }
+
+    public void addProcessAddCustomer() {
+
+        add_submit.click();
+    }
+
+    public void validatePopup() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+
+        String alert_message = alert.getText();
+
+        assertTrue(alert_message.contains("Customer added successfully"));
+
+        alert.accept();
+    }
 
 }

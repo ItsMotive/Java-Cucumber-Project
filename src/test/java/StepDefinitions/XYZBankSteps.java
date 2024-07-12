@@ -27,9 +27,9 @@ public class XYZBankSteps {
 
     // -------------------- Global Gherkin Actions -------------------- //
 
-    @Given("user is on banking login")
+    @Given("user is on banking website")
     public void userIsOnLoginPage() {
-        System.out.println("Given Step: User is on Login Page");
+        System.out.println("Given Step: User is on banking website");
 
         driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
 
@@ -71,5 +71,53 @@ public class XYZBankSteps {
     }
 
     // -------------------- TC02 Gherkin Actions -------------------- //
+
+    @When("user clicks on manager login")
+    public void userClicksOnManagerLogin() {
+        System.out.println("When Step: User clicks on customer login button");
+
+        banking_pages.clickManagerLoginButton();
+    }
+
+    @And("user clicks on add customer")
+    public void userClicksOnAddCustomer() {
+        System.out.println("And Step: User clicks on add customer button");
+
+        banking_pages.clickAddCustomer();
+    }
+
+    @And("^user enters (.*) first name")
+    public void userEntersFirstName(String first) {
+        System.out.println("And Step: User enters first name");
+
+        banking_pages.addEnterFirstName(first);
+    }
+
+    @And("^user enters (.*) last name")
+    public void userEntersLastName(String last) {
+        System.out.println("And Step: User enters last name");
+
+        banking_pages.addEnterLastName(last);
+    }
+
+    @And("^user enters (.*) code")
+    public void userEntersPostal(String postal) {
+        System.out.println("And Step: User enters postal code");
+
+        banking_pages.addEnterPostal(postal);
+    }
+
+    @And("user clicks on adding customer")
+    public void userClicksAddingCustomer() {
+
+        banking_pages.addProcessAddCustomer();
+    }
+
+    @Then("user has alert that confirms successful creation")
+    public void validateConfirmationPopup() {
+        System.out.println("Then Step: User has popup of confirmation");
+
+        banking_pages.validatePopup();
+    }
 
 }

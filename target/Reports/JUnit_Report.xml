@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="19.668" tests="9" skipped="0" failures="0" errors="0">
-<testcase classname="Test login functionality of this site" name="TC01: Check login with successful credentials - #1.1" time="5.11">
+<testsuite name="Cucumber" time="19.495" tests="10" skipped="0" failures="0" errors="0">
+<testcase classname="Test login functionality of this site" name="TC01: Check login with successful credentials - #1.1" time="2.589">
 <system-out><![CDATA[
 Given user is on login homepage.............................................passed
 When user enters student and Password123 valid..............................passed
@@ -8,7 +8,7 @@ And user clicks on login button.............................................pass
 Then user is navigated to logout page.......................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test login functionality of this site" name="TC02: Check login with invalid username - #1.1" time="1.422">
+<testcase classname="Test login functionality of this site" name="TC02: Check login with invalid username - #1.1" time="1.608">
 <system-out><![CDATA[
 Given user is on login homepage.............................................passed
 When user enters invalid invalidStudent and valid Password123...............passed
@@ -16,7 +16,7 @@ And user clicks on login button.............................................pass
 Then user should see invalid username popup.................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test login functionality of this site" name="TC03: Check login with invalid password - #1.1" time="1.547">
+<testcase classname="Test login functionality of this site" name="TC03: Check login with invalid password - #1.1" time="1.485">
 <system-out><![CDATA[
 Given user is on login homepage.............................................passed
 When user enters valid student and invalid invalidPass......................passed
@@ -24,7 +24,7 @@ And user clicks on login button.............................................pass
 Then user should see invalid password popup.................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Used for testing hotel website" name="TC01: Validating getting in touch with hotel - #1.1" time="2.336">
+<testcase classname="Used for testing hotel website" name="TC01: Validating getting in touch with hotel - #1.1" time="2.413">
 <system-out><![CDATA[
 Given user is on website....................................................passed
 When user enters contact name John Doe......................................passed
@@ -36,49 +36,61 @@ And user clicks on contact submit...........................................pass
 Then user is prompted with thanks message...................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Testing flow of demo banking website" name="TC01: Successful Login - #1.1" time="1.811">
+<testcase classname="Testing flow of demo banking website" name="TC01: Successful Customer Login - #1.1" time="1.889">
 <system-out><![CDATA[
-Given user is on banking login..............................................passed
+Given user is on banking website............................................passed
 When user clicks on customer login..........................................passed
 And user selects Hermoine Granger profile...................................passed
 And user clicks on bank login...............................................passed
 Then user should be navigated to welcome page...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Testing flow of demo banking website" name="TC01: Successful Login - #1.2" time="1.872">
+<testcase classname="Testing flow of demo banking website" name="TC01: Successful Customer Login - #1.2" time="1.967">
 <system-out><![CDATA[
-Given user is on banking login..............................................passed
+Given user is on banking website............................................passed
 When user clicks on customer login..........................................passed
 And user selects Harry Potter profile.......................................passed
 And user clicks on bank login...............................................passed
 Then user should be navigated to welcome page...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Testing flow of demo banking website" name="TC01: Successful Login - #1.3" time="1.874">
+<testcase classname="Testing flow of demo banking website" name="TC01: Successful Customer Login - #1.3" time="1.859">
 <system-out><![CDATA[
-Given user is on banking login..............................................passed
+Given user is on banking website............................................passed
 When user clicks on customer login..........................................passed
 And user selects Ron Weasly profile.........................................passed
 And user clicks on bank login...............................................passed
 Then user should be navigated to welcome page...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Testing flow of demo banking website" name="TC01: Successful Login - #1.4" time="1.795">
+<testcase classname="Testing flow of demo banking website" name="TC01: Successful Customer Login - #1.4" time="1.855">
 <system-out><![CDATA[
-Given user is on banking login..............................................passed
+Given user is on banking website............................................passed
 When user clicks on customer login..........................................passed
 And user selects Albus Dumbledore profile...................................passed
 And user clicks on bank login...............................................passed
 Then user should be navigated to welcome page...............................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Testing flow of demo banking website" name="TC01: Successful Login - #1.5" time="1.796">
+<testcase classname="Testing flow of demo banking website" name="TC01: Successful Customer Login - #1.5" time="1.812">
 <system-out><![CDATA[
-Given user is on banking login..............................................passed
+Given user is on banking website............................................passed
 When user clicks on customer login..........................................passed
 And user selects Neville Longbottom profile.................................passed
 And user clicks on bank login...............................................passed
 Then user should be navigated to welcome page...............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Testing flow of demo banking website" name="TC02: Validate successfully adding customer - #1.1" time="1.919">
+<system-out><![CDATA[
+Given user is on banking website............................................passed
+When user clicks on manager login...........................................passed
+And user clicks on add customer.............................................passed
+And user enters John first name.............................................passed
+And user enters Doe last name...............................................passed
+And user enters 06183 code..................................................passed
+And user clicks on adding customer..........................................passed
+Then user has alert that confirms successful creation.......................passed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -19,7 +19,7 @@ Feature: Used for testing hotel website
         | name | email | phone | subject | message |
         | John Doe | johndoe@mail.com | 31232132111 | Getting Access | Something that is 20 characters long |
 
-    @WIP
+    @HotelTest @WIP
     Scenario: TC02: Validating booking reservation
         Given user is on website
         When user clicks on booking button
